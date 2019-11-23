@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>visualize | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="快速上手网易云音乐可视化什么是音频可视化 音频可视化，顾名思义，就是通过获取音频的波形、频率和其他来自音频的数据转换成图像，再到屏幕上显示出来。通过它，我们能够制作一些炫酷的前端音乐界面。  下面，我将分析一个来自云音乐技术团队的音频可视化开发案例，快速帮助小白，制作自己喜欢的炫酷的音频可视化界面。 先上图  想开发这么一个炫酷的音频界面，我们可以先来聊聊 canvas canvas是什么canv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="visualize">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;23&#x2F;visualize&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="快速上手网易云音乐可视化什么是音频可视化 音频可视化，顾名思义，就是通过获取音频的波形、频率和其他来自音频的数据转换成图像，再到屏幕上显示出来。通过它，我们能够制作一些炫酷的前端音乐界面。  下面，我将分析一个来自云音乐技术团队的音频可视化开发案例，快速帮助小白，制作自己喜欢的炫酷的音频可视化界面。 先上图  想开发这么一个炫酷的音频界面，我们可以先来聊聊 canvas canvas是什么canv">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="e:%5C%E6%96%87%E4%BB%B6%5C%E6%8E%98%E9%87%91%5C1.png">
+<meta property="og:updated_time" content="2019-11-23T00:50:27.750Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:%5C%E6%96%87%E4%BB%B6%5C%E6%8E%98%E9%87%91%5C1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-visualize" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/23/visualize/" class="article-date">
+  <time datetime="2019-11-23T04:53:55.822Z" itemprop="datePublished">2019-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      visualize
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="快速上手网易云音乐可视化"><a href="#快速上手网易云音乐可视化" class="headerlink" title="快速上手网易云音乐可视化"></a>快速上手网易云音乐可视化</h1><h2 id="什么是音频可视化"><a href="#什么是音频可视化" class="headerlink" title="什么是音频可视化"></a>什么是音频可视化</h2><blockquote>
+<p>音频可视化，顾名思义，就是通过获取音频的波形、频率和其他来自音频的数据转换成图像，再到屏幕上显示出来。通过它，我们能够制作一些炫酷的前端音乐界面。</p>
+</blockquote>
+<p>下面，我将分析一个来自<a href="https://juejin.im/post/5d8c122be51d4578176b4b2b" target="_blank" rel="noopener">云音乐技术团队的音频可视化开发案例</a>，快速帮助小白，制作自己喜欢的炫酷的音频可视化界面。</p>
+<p>先上图</p>
+<p><img src="E:%5C%E6%96%87%E4%BB%B6%5C%E6%8E%98%E9%87%91%5C1.png" alt=""></p>
+<p>想开发这么一个炫酷的音频界面，我们可以先来聊聊 <strong>canvas</strong></p>
+<h2 id="canvas是什么"><a href="#canvas是什么" class="headerlink" title="canvas是什么"></a>canvas是什么</h2><p><strong>canvas</strong>是HTML5中用于图形绘制的容器元素，它通常通过JavaScript脚本来完成图形绘制。要完成我们下面的音频可视化开发，我们可以借组结构canvas的几个方法，下面将通过开发一个页面倒计时的小案例来帮助初学者了解canvas的一些属性和方法。</p>
+<p>先上代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=<span class="string">"myCanvas"</span>&gt;  </span><br><span class="line">   &lt;<span class="regexp">/canvas&gt;</span></span><br><span class="line"><span class="regexp">   &lt;script&gt;</span></span><br><span class="line"><span class="regexp">       const canvas = document.getElementById('myCanvas');</span></span><br><span class="line"><span class="regexp">       var ctx = canvas.getContext('2d');</span></span><br><span class="line"><span class="regexp">       ctx.fillStyle = 'red';</span></span><br><span class="line"><span class="regexp">       ctx.font = "50px Verdana";        </span></span><br><span class="line"><span class="regexp">       let dis = 550;</span></span><br><span class="line"><span class="regexp">       let i = 10;</span></span><br><span class="line"><span class="regexp">       function animation()&#123;</span></span><br><span class="line"><span class="regexp">       requestAnimationFrame(function()&#123;        </span></span><br><span class="line"><span class="regexp">           if(dis &gt;= 0)&#123;</span></span><br><span class="line"><span class="regexp">               --dis;</span></span><br><span class="line"><span class="regexp">               if(dis%50 == 0 )&#123;</span></span><br><span class="line"><span class="regexp">                   ctx.clearRect(0,0,300,150);</span></span><br><span class="line"><span class="regexp">                   ctx.fillText(i--,100,100);</span></span><br><span class="line"><span class="regexp">               &#125;</span></span><br><span class="line"><span class="regexp">               animation();</span></span><br><span class="line"><span class="regexp">           &#125;                </span></span><br><span class="line"><span class="regexp">       &#125;);</span></span><br><span class="line"><span class="regexp">       &#125;</span></span><br><span class="line"><span class="regexp">       animation();</span></span><br><span class="line"><span class="regexp">       &lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们在<code>html</code>页面创建一个<code>canvas</code>画布元素并设置id为<code>myCanvas</code>，它的默认大小是300*150，创建好了这块画布，接下来我们就能在JavaScript脚本中绘制图形了。</p>
+<p>先通过<code>getElementById()</code>找到这个元素，然后创建canvas对象<code>ctx</code>并设置填充色为红色，字体为Verdana，大小为50px，设置<code>dis</code>变量用于条件控制，再定义一个<code>i</code>变量用于显示倒计时数字，然后我们就可以开始在我们的画布里绘制倒计时数字了。</p>
+<p>创建一个<code>animation</code>函数，在这个函数里面，我们使用了一个html5专门用于请求动画的API<code>requestAnimationFrame</code>请求动画帧，相比于定时器<code>setTimeout</code>，它不会引起丢帧、丢帧，看起来更加流畅。</p>
+<p>在<code>requestAnimationFrame</code>里面，先设置刷帧条件<code>dis&gt;=0</code>，<code>dis</code>每次减一，总共550次，再设置条件为每50次执行一次绘制操作，在每次绘制之前，通过<code>clearRect(x,y,width,height)</code>方法将画布上给定矩形清空，它的4个参数分别表示要清除的矩形左上角的x，y坐标，以及要清空矩形的宽度和高度，单位以像素计算。然后再通过<code>fillText()</code>画布指定位置绘制倒计时数字,该方法接收四个参数：<code>text</code>输出的文本，<code>x</code>绘制文本的x坐标，<code>y</code>绘制文本的y坐标，注意：这两个值都是相对于画布，最后一个参数<code>maxWidth</code>表示允许文本的最大宽度，它是一个可选参数。</p>
+<p>接着我们通过递归的方式调用<code>animation()</code>函数直到倒计时结束，最后在外部调用一下<code>animation()</code>函数，至此，一个简单的倒计时界面完成。我们还可以给<code>canvas</code>通过<code>innerWidth</code>和<code>innerHeight</code>设置</p>
+<p>画布大小。</p>
+<p><code>canvas</code>可以绘制各种图形，更多内容请自行参看<code>canvas</code>内容</p>
+<p>聊完了<code>canvas</code>，接下来就是我们的正题了。</p>
+<h2 id="Web-Audio"><a href="#Web-Audio" class="headerlink" title="Web Audio"></a>Web Audio</h2><p>在开始之前，我们还需要了解什么是Web Audio。</p>
+<blockquote>
+<p>Web Audio 是 Web 端处理和分析音频的一套 API 。它可以使用户在音频上下文中进行音频操作，具有模块化路由的特点，它也使我们能够控制音频的空间化。</p>
+</blockquote>
+<p>通过Web Audio，我们能够实现<strong>取数据</strong>和<strong>映射数据</strong>两个过程，下面我们将实现这两个过程。</p>
+<h2 id="项目实现"><a href="#项目实现" class="headerlink" title="项目实现"></a>项目实现</h2><p>我们先在页面创建一个<code>canvas</code>元素和一个<code>audio</code>标签以及一个用于作播放按钮的<code>a</code>标签。</p>
+<p>然后在JavaScript里面获取<code>audio</code>和<code>a</code>这两个元素，并给<code>a</code>标签设置单击事件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'play-btn'</span>);</span><br><span class="line">      <span class="keyword">var</span> audio = <span class="built_in">document</span>.getElementById(<span class="string">'audio'</span>);</span><br><span class="line">      btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          btn.style.display = <span class="string">'none'</span>;</span><br><span class="line">          audio.play();</span><br><span class="line">          onloadAudio();</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在<code>onLoadAudio()</code>函数里面，我们先获取<code>canvas</code>元素，设置它占满整个页面，再创建<code>canvas</code>的对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</span><br><span class="line">      canvas.width = <span class="built_in">window</span>.innerWidth;</span><br><span class="line">      canvas.height = <span class="built_in">window</span>.innerHeight;</span><br><span class="line">      <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>创建 *<em>AudioContext *</em>对象，用来控制它所包含的节点的创建，以及音频处理、解码操作的执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> audioCtx = <span class="keyword">new</span> (<span class="built_in">window</span>.AudioContext || <span class="built_in">window</span>.webkitAudioContext)();</span><br></pre></td></tr></table></figure>
+
+<p>通过 <code>createAnalyser()</code> 方法创建 *<em>AnalyserNode *</em>用来获取音频时间和频率数据，实现音频数据可视化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> analyser = audioCtx.createAnalyser();</span><br><span class="line">analyser.fftSize = <span class="number">512</span>;</span><br></pre></td></tr></table></figure>
+
+<p>fftSize 在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/fftSize" target="_blank" rel="noopener">MDN</a> 里面介绍是快速傅里叶变换的一个参数，取值必须是从32到32768范围内的2的非零幂，默认值为2048，在这里我们取512。另外，fftSize 的值决定了 frequencyData 的长度。</p>
+<p>将音频节点关联到 <strong>AudioContext</strong>上，作为整个音频分析的输入。</p>
+<p>我们采用<strong>MediaElementAudioSourceNode</strong> 将<code>&lt;audio&gt;</code>节点作为输入源，并将音频关联到分析器，再将分析器关联到输出设备。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> source = audioCtx.createMediaElementSource(audio);</span><br><span class="line">      source.connect(analyser);</span><br><span class="line">      analyser.connect(audioCtx.destination);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>接下来获取频率数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bufferLength = analyser.frequencyBinCount;</span><br><span class="line"><span class="keyword">var</span> dataArray = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(bufferLength);</span><br></pre></td></tr></table></figure>
+
+<p><code>frequencyBinCount()</code>的值是 fftSize 取值的一半，所以这里的 Uint8Array() 数组的长度就是256。</p>
+<p>然后设置音柱的宽度，而高度只定义变量而不赋值，留在后面通过<code>dataArray[]</code>数组动态设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> barWidth = WIDTH / bufferLength*<span class="number">1.5</span>;</span><br><span class="line">      <span class="keyword">var</span> barHeight;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="绘制音柱"><a href="#绘制音柱" class="headerlink" title="绘制音柱"></a>绘制音柱</h3><p>定义一个 <code>renderFrame()</code> 函数用于绘制音柱，并且每次绘制之前都先将整个画布清除，然后更新频率数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctx.clearRect(0,0,WIDTH,HEIGHT);</span><br><span class="line">      analyser.getByteFrequencyData(dataArray);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>通过<code>for</code>循环里面设置每一个矩形的高度，再根据高度设置一个背景色，然后绘制矩形，并填充背景颜色。然后通过递归的方式调用函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">barHeight = dataArray[i];</span><br><span class="line">      <span class="keyword">var</span> r = barHeight + <span class="number">25</span> * (i / bufferLength);</span><br><span class="line">      <span class="keyword">var</span> g = <span class="number">250</span> * (i / bufferLength);</span><br><span class="line">      <span class="keyword">var</span> b = <span class="number">50</span>;</span><br><span class="line">      ctx.fillStyle = <span class="string">"rgb("</span> + r + <span class="string">","</span> + g + <span class="string">","</span> + b + <span class="string">")"</span>;</span><br><span class="line">      ctx.fillRect(x,HEIGHT-barHeight,barWidth,barHeight);</span><br><span class="line">      x += barWidth+<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>最后，运行代码，体验属于你的可视化音乐吧。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本文简单介绍了 canvas 的使用和如何通过 Web Audio 的相关 API 获取音频的频率数据。</p>
+<p>然而 <code>canvas</code> 和 <code>Web Audio</code>的用处远远不止于此，读者还可以发挥想象力和创造力，开发出更多有意思的项目。</p>
+<p>附上项目源码：<a href="https://github.com/anpeier/lesson_shuidi/tree/master/html5/visualize" target="_blank" rel="noopener">https://github.com/anpeier/lesson_shuidi/tree/master/html5/visualize</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/23/visualize/" data-id="ck3b3mak400001stv9bwshlq0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/23/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/23/visualize/">visualize</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/23/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
