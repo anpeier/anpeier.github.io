@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>随遇而安</title>
+  
+  <subtitle>随遇而安</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://anpeier.github.io/"/>
+  <updated>2019-11-24T03:46:32.574Z</updated>
+  <id>http://anpeier.github.io/</id>
+  
+  <author>
+    <name>随遇而安</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>快速上手网易云音乐可视化</title>
+    <link href="http://anpeier.github.io/2019/11/23/visualize/"/>
+    <id>http://anpeier.github.io/2019/11/23/visualize/</id>
+    <published>2019-11-23T04:53:55.822Z</published>
+    <updated>2019-11-24T03:46:32.574Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;什么是音频可视化&quot;&gt;&lt;a href=&quot;#什么是音频可视化&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://anpeier.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="http://anpeier.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+</feed>
