@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://anpeier.github.io/"/>
-  <updated>2019-12-09T14:33:14.396Z</updated>
+  <updated>2020-03-15T01:53:06.063Z</updated>
   <id>http://anpeier.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue组件化开发之通用型弹出框</title>
+    <link href="http://anpeier.github.io/2020/03/15/modal/"/>
+    <id>http://anpeier.github.io/2020/03/15/modal/</id>
+    <published>2020-03-15T01:42:41.236Z</published>
+    <updated>2020-03-15T01:53:06.063Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;本文主要分享关于组件化开发的理解，让刚入门的小伙伴少走一些弯路，提高开发效率，作者本人也是新手，如有不当之处，请大佬指出，感谢。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://anpeier.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Vue" scheme="http://anpeier.github.io/tags/Vue/"/>
+    
+      <category term="组件化思维" scheme="http://anpeier.github.io/tags/%E7%BB%84%E4%BB%B6%E5%8C%96%E6%80%9D%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>快速上手网易云音乐可视化</title>
